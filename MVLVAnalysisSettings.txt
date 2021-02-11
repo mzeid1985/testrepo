@@ -1,0 +1,18 @@
+LV Analysis
+landbaseFeatureClass: This can be left empty or can be set to any landbase feature class name.
+landbaseQuery: It is optional to specify a SQL query to filter the landbase feature class specified to make the LV analysis process run only on substation, extensible and RMU areas within the landbase features satisfying this query.  
+analyseSubstations: Set to true to run the LV analysis on transformers within substation area features
+analyseRMU: Set to true to run the LV analysis process on transformers within extensible area features
+analyseRMU: Set to true to run the LV analysis process on transformers within RMU area features
+
+MV analysis and MVLVAnalysis
+circuitSourceQuery: It is optional to specify a SQL query to filter the circuit source table and make the MV analysis process run on the feeders stratifying this query.
+
+
+Common Settings (for LV, MV and MVLV):
+
+saveFrequency: Specifies the number of substations (For LV analysis) and circuit source feeders (for MV analysis) to be traversed before saving the edits.
+Note: increasing this number will make the process faster, but there will be more risk to loose non saved results obtained by the LV or MV analysis in case of unexpected system crash or shutdown.
+
+skipBefore: Number of days. Previously analyzed features (LV substations or MV feeders) in a period (days) less than this number will be skipped and will not be analyzed again. This is useful when the batch process ran for a long time, and an unexpected system crash or shutdown happened before the process is finished, in the next run (if done before this number of days) the already analyzed and saved features will be skipped.
+
